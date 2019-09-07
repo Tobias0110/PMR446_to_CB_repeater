@@ -164,6 +164,7 @@ if(new_symbol == 1)
       Serial.println(cb_pll[exe-1]);
 
       //Set CB-Channel
+      cb_tx_off();
       Wire.beginTransmission(0x27);
       Wire.write(cb_pll[exe-1]);
       Wire.endTransmission();
@@ -173,6 +174,7 @@ if(new_symbol == 1)
     }
     else if (exe == 00)
     {
+      cb_tx_off();
       delay(3000);
       pmr_tx_on();
       delay(500);
@@ -254,6 +256,7 @@ if(new_symbol == 1)
     else
     {
       //Inform the PMR user about the error
+      cb_tx_off();
       delay(5000);
       pmr_tx_on();
       tone(3, 1000, 1000);
